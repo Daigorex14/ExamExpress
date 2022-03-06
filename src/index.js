@@ -3,7 +3,7 @@ require('dotenv').config({path: './config.env'});
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = process.env.PORT || 4002
+const port = process.env.PORT || 4001
 
 const userRoute = require("./routes/userRoute");
 
@@ -18,16 +18,6 @@ require("./db")(app);
 
 app.get("/", (req,res)=>{
     res.send("Hello from index");
-});
-
-app.get("/login",(req, res)=>{
-    res.send("Hello from login");
-});
-
-app.post("/register",(req, res)=>{
-    console.log(req.body.name);
-    console.log(req.body.email);
-    res.send("Hello from register");
 });
 
 app.listen(port, ()=>{
